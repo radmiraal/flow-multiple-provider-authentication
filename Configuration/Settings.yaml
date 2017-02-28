@@ -1,0 +1,9 @@
+---
+
+Neos:
+  Flow:
+    resource:
+      targets:
+        localWebDirectoryPersistentResourcesTarget:
+          targetOptions:
+            relativeSymlinks: true

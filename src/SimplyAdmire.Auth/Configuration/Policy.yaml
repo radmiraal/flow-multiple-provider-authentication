@@ -1,0 +1,31 @@
+---
+
+privilegeTargets:
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'SimplyAdmire.Auth:Application':
+      matcher: 'method(public SimplyAdmire\Auth\Controller\StandardController->indexAction())'
+    'SimplyAdmire.Auth:QueryDashboard':
+      matcher: 'method(public SimplyAdmire\Auth\Controller\StandardController->dashboardAction())'
+    'SimplyAdmire.Auth:Authentication':
+      matcher: 'method(public SimplyAdmire\Auth\Controller\AuthenticationController->(?!initialize).*Action())'
+
+roles:
+
+  'Neos.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: 'SimplyAdmire.Auth:Authentication'
+        permission: GRANT
+      -
+        privilegeTarget: 'SimplyAdmire.Auth:QueryDashboard'
+        permission: GRANT
+
+  'SimplyAdmire.Auth:User':
+    privileges:
+      -
+        privilegeTarget: 'SimplyAdmire.Auth:Application'
+        permission: GRANT
+
+  'SimplyAdmire.Auth:Admin':
+    parentRoles:
+      - 'SimplyAdmire.Auth:User'

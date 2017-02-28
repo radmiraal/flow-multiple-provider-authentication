@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Dashboard</title></head>
+    <body>
+        <f:link.action action="index">App</f:link.action><br/>
+
+
+        Active Directory
+        <ul>
+            <f:for each="{activeDirectoryUsers}" as="user" iteration="iterator">
+                <f:if condition="{iterator.isFirst} == false">
+                    <li>{user.cn.0}</li>
+                </f:if>
+            </f:for>
+        </ul>
+
+        LDAP
+        <ul>
+            <f:for each="{ldapUsers}" as="user" iteration="iterator">
+                <f:if condition="{iterator.isFirst} == false">
+                    <li>{user.uid.0}</li>
+                </f:if>
+            </f:for>
+        </ul>
+    </body>
+</html>

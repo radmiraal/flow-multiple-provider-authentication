@@ -1,0 +1,12 @@
+---
+
+-
+  uriPattern: '<ApplicationRoutes>'
+  defaults:
+    '@package': 'SimplyAdmire.Auth'
+    '@format': 'html'
+  subRoutes:
+    'ApplicationRoutes':
+      package: 'SimplyAdmire.Auth'
+
+

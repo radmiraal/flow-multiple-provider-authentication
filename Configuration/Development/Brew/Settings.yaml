@@ -1,0 +1,10 @@
+---
+
+Neos:
+  Flow:
+    persistence:
+      backendOptions:
+        host: "%env:HOSTNAME%"
+        port: "%env:MYSQL_PORT%"
+    core:
+      phpBinaryPathAndFilename: "/usr/local/bin/php"

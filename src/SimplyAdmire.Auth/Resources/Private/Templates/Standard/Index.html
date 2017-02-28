@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Status</title></head>
+    <body>
+        Account identifier: {account.accountIdentifier}<br />
+        Authentication provider: {account.authenticationProviderName}<br />
+        Roles:
+        <ul>
+            <f:for each="{account.roles}" as="role">
+                <li>{role.identifier}</li>
+            </f:for>
+        </ul>
+
+        <f:form action="logout" controller="Authentication" method="post">
+            <f:form.submit value="Log out" />
+        </f:form>
+
+        <f:link.action action="dashboard" controller="Standard">Query result dashboard</f:link.action>
+    </body>
+</html>

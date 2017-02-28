@@ -1,0 +1,40 @@
+{
+    "name": "ldap/auth-test",
+    "authors": [
+        {
+            "name": "SimplyAdmire BV",
+            "email": "support@simplyadmire.com"
+        }
+    ],
+    "repositories": [
+        {"type":"path","url":"src/*"}
+    ],
+    "config": {
+        "vendor-dir": "Packages/Libraries",
+        "bin-dir": "bin"
+    },
+    "require": {
+        "simplyadmire/auth": "@dev",
+        "simplyadmire/crowdconnector": "1.0.x-dev as 0.1.0",
+        "neos/ldap": "dev-task/refactoring",
+
+        "ocramius/proxy-manager": "2.0.*"
+    },
+    "require-dev": {
+        "helhum/dotenv-connector": "^1.1"
+    },
+    "suggest": {
+        "ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
+    },
+    "extra": {
+        "helhum/dotenv-connector": {
+            "allow-overrides": false
+        }
+    },
+    "scripts": {
+        "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+        "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
+    }
+}

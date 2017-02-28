@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Login</title></head>
+    <body>
+        <f:flashMessages />
+        <f:form action="authenticate" method="post">
+            <f:form.textfield placeholder="username" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][username]" />
+            <f:form.password placeholder="password" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][password]" />
+            <f:form.submit value="Log in" />
+        </f:form>
+
+        <f:link.action action="dashboard" controller="Standard">Query result dashboard</f:link.action>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+---
+
+Neos:
+  Flow:
+    security:
+      authentication:
+        authenticationStrategy: oneToken
+        providers:
+
+          ActiveDirectory:
+            provider: Neos\Ldap\Security\Authentication\Provider\LdapProvider
+            requestPatterns:
+              AllControllers:
+                pattern: 'ControllerObjectName'
+                patternOptions:
+                  controllerObjectNamePattern: '.*'
+            entryPoint: WebRedirect
+            entryPointOptions:
+              routeValues:
+                '@package':    'SimplyAdmire.Auth'
+                '@controller': 'Authentication'
+                '@action':     'login'
+                '@format':     'html'
+
+          Ldap:
+            provider: Neos\Ldap\Security\Authentication\Provider\LdapProvider
+            requestPatterns:
+              AllControllers:
+                pattern: 'ControllerObjectName'
+                patternOptions:
+                  controllerObjectNamePattern: '.*'
+            entryPoint: WebRedirect
+            entryPointOptions:
+              routeValues:
+                '@package':    'SimplyAdmire.Auth'
+                '@controller': 'Authentication'
+                '@action':     'login'
+                '@format':     'html'
+
+          crowdProvider:
+            provider: SimplyAdmire\CrowdConnector\Provider\CrowdProvider
+            requestPatterns:
+              AllControllers:
+                pattern: 'ControllerObjectName'
+                patternOptions:
+                  controllerObjectNamePattern: '.*'
+            entryPoint: WebRedirect
+            entryPointOptions:
+              routeValues:
+                '@package':    'SimplyAdmire.Auth'
+                '@controller': 'Authentication'
+                '@action':     'login'
+                '@format':     'html'
